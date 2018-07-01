@@ -7,7 +7,7 @@ import org.junit.*;
 
 public class WorkerTest {
 	
-	// Machine =3 and Bolts  = 6 , then product will be 3 
+	// Machine =3 and Bolts  = 6 , then product will be 3 ,
 	@Test
 	public void TotalProduct() {
 		int X  = 3;
@@ -25,7 +25,7 @@ public class WorkerTest {
 		int Y= 12 ;
 		Worker worker = new Worker(X,Y);
 		worker.statWork();		
-		assertEquals(3, worker.getTotalProduct());
+		assertEquals(3, "TimeTaken="+worker.getTotalProduct());
 	}
 	
 	// Machine =12 and Bolts  = 2 , then product will be 1
@@ -38,6 +38,15 @@ public class WorkerTest {
 			assertEquals(1, worker.getTotalProduct());
 		}
 	
+		// Machine =0 and Bolts  = 0 , then product will be 0
+				@Test
+				public void TotalProduct4() {
+					int X  = 0;
+					int Y= 0 ;
+					Worker worker = new Worker(X,Y);
+					worker.statWork();		
+					assertEquals(0, worker.getTotalProduct());
+				}
 
 
 		// Total Time Take for preparing 3 products 
