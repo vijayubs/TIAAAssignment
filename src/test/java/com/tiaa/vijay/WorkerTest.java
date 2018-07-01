@@ -12,18 +12,19 @@ public class WorkerTest {
 	public void TotalProduct() {
 		int X  = 3;
 		int Y= 6 ;
-		Worker worker = new Worker(X,Y);
+		int sleepInSeconds = 60;
+		Worker worker = new Worker(X,Y,sleepInSeconds);
 		worker.statWork();		
 		assertEquals(3, worker.getTotalProduct());
 	}
-	
 	
 	// Machine =3 and Bolts  = 12 , then product will be 3
 	@Test
 	public void TotalProduct1() {
 		int X  = 3;
 		int Y= 12 ;
-		Worker worker = new Worker(X,Y);
+		int sleepInSeconds = 60;
+		Worker worker = new Worker(X,Y,sleepInSeconds);
 		worker.statWork();		
 		assertEquals(3, "TimeTaken="+worker.getTotalProduct());
 	}
@@ -33,7 +34,8 @@ public class WorkerTest {
 		public void TotalProduct3() {
 			int X  = 12;
 			int Y= 2 ;
-			Worker worker = new Worker(X,Y);
+			int sleepInSeconds = 60;
+			Worker worker = new Worker(X,Y,sleepInSeconds);
 			worker.statWork();		
 			assertEquals(1, worker.getTotalProduct());
 		}
@@ -43,7 +45,8 @@ public class WorkerTest {
 				public void TotalProduct4() {
 					int X  = 0;
 					int Y= 0 ;
-					Worker worker = new Worker(X,Y);
+					int sleepInSeconds = 60;
+					Worker worker = new Worker(X,Y,sleepInSeconds);
 					worker.statWork();		
 					assertEquals(0, worker.getTotalProduct());
 				}

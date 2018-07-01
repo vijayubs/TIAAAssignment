@@ -6,14 +6,16 @@ public class Worker extends Thread{
 
 	int X;
 	int Y ;
+	int sleepInSeconds;
 	//int totalProduct = 0;
 	private AtomicInteger totalProduct = new AtomicInteger();
 	long totalTimeTaken =0;
 	Object unfinishedgoodsLock = new Object();
 	
-	public Worker(int X, int Y) {
+	public Worker(int X, int Y, int sleepInSeconds) {
 		this.X = X ;
 		this.Y = Y;
+		this.sleepInSeconds = sleepInSeconds;
 	}
 
 
@@ -23,7 +25,7 @@ public class Worker extends Thread{
 		
 		synchronized (unfinishedgoodsLock) 
 		{			
-				if(X ==0 || Y == 0 ){     // Cehecking in enough raw material in available or not 
+				if(X ==0 || Y == 0 ){     // Checking if enough raw material is available or not 
 					IsRawMaterialavailable =  false;
 				}
 				
@@ -36,7 +38,6 @@ public class Worker extends Thread{
 							break;
 						}
 					}
-					
 				}			
 		}
 		
@@ -49,16 +50,16 @@ public class Worker extends Thread{
 		
 		boolean rawMaterialOK = getUnfinishedGood();		
 		
-		do {
 		if(rawMaterialOK){
+		do {		
 			try {								
-				Thread.sleep(1000);
+				Thread.sleep(sleepInSeconds*1000); 
 				totalProduct.incrementAndGet();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-		}
 		}while(getUnfinishedGood());
+		}
 	}
 	
 
@@ -67,7 +68,7 @@ public class Worker extends Thread{
 	public void statWork()
 	{
 		System.out.println("3 workers Starting work ....");
-		long start = System.currentTimeMillis();
+		
 
 		
 		// Creating 3 Worker Thread .       
@@ -91,13 +92,11 @@ public class Worker extends Thread{
 				assembleProduct();
 			}
 		});
-
+		
 		t1.start();
 		t2.start();
 		t3.start();
-		
-		
-		
+		long start = System.currentTimeMillis();
 		try {
 			t1.join();
 			t2.join();
@@ -106,8 +105,10 @@ public class Worker extends Thread{
 			e.printStackTrace();
 		}
 		
-		
 		long end = System.currentTimeMillis();
+		
+		
+		
 		totalTimeTaken = end-start;
 		System.out.println("Total Time Taken  ms "+ totalTimeTaken+ " , Total Products ="+totalProduct);
 			
