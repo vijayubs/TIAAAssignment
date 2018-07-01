@@ -1,19 +1,11 @@
 package com.tiaa.vijay;
 
 import static org.junit.Assert.*;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 
 import org.junit.*;
-import static org.hamcrest.Matchers.greaterThan;
 
-import static org.hamcrest.Matchers.lessThan;
-import static org.hamcrest.CoreMatchers.allOf;
-
-import junit.framework.TestCase;
 
 public class WorkerTest {
-
 	
 	// Machine =3 and Bolts  = 6 , then product will be 3 
 	@Test
@@ -47,7 +39,8 @@ public class WorkerTest {
 		}
 	
 
-	// Total Time Take for 3 products 
+
+		// Total Time Take for preparing 3 products 
 	
 		// coulnt complete due to time contraints 
 

@@ -51,8 +51,7 @@ public class Worker extends Thread{
 		
 		do {
 		if(rawMaterialOK){
-			try {
-				System.out.println("Preparing Product");				
+			try {								
 				Thread.sleep(1000);
 				totalProduct.incrementAndGet();
 			} catch (InterruptedException e) {
@@ -67,7 +66,7 @@ public class Worker extends Thread{
 	
 	public void statWork()
 	{
-		System.out.println("Starting work ....");
+		System.out.println("3 workers Starting work ....");
 		long start = System.currentTimeMillis();
 
 		
