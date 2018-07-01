@@ -8,8 +8,10 @@ Section 2:
 
 Section 3 
 
-a)	Final Output Snapshot 
+a)	Final Output Snapshot
+     https://github.com/vijayubs/TIAAAssignment/blob/master/image/output.png 
 b)	Junit Coverage Snapshot
+       https://github.com/vijayubs/TIAAAssignment/blob/master/image/junit.png
 Note: (You can link directly to the raw version of an image from your image folder. Hence from section 1.1 if your GIT Link is : https://github.com/nescafe2018/intrvw_sq , then you can have the following text in your readme ![SonarLint] (https://github.com/nescafe2018/intrvw_sq/<Link of you image) )
 
 
